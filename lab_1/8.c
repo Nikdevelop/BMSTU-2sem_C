@@ -27,7 +27,7 @@ void printBytes(uint number)
 {
     for (int i = 0; i < 4; ++i)
     {
-        printf("%u ", ((number & (0xff << (8 * (3 - i)))) >> (8 * (3 - i))));
+        printf("%u ", ((number & (0xffU << (8 * (3 - i)))) >> (8 * (3 - i))));
     }
     printf("\n");
 }
@@ -38,7 +38,7 @@ int main(void)
     for (int i = 0; i < 4; ++i)
     {
         uint byte;
-        if (scanf("%d", &byte) != 1)
+        if (scanf("%u", &byte) != 1)
         {
             printf("Error: i/o error\n");
             return ERR_IO;

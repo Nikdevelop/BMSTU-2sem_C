@@ -24,14 +24,14 @@ int main(void)
 {
     unsigned int a, b;
     unsigned int nod;
-    if (scanf("%d%d", &a,&b) != 2)
+    if (scanf("%u%u", &a, &b) != 2)
     {
         printf("IO error\n");
         return ERR_IO;
     }
     
     nod = NOD(a, b);
-    printf("nod for %d and %d is %d\n", a, b, nod);
+    printf("nod for %u and %u is %u\n", a, b, nod);
 
     return 0;
 }

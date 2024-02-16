@@ -11,14 +11,14 @@ typedef struct
     unsigned age;
 } myStruct;
 
-void dumpMyStruct(myStruct* ptr, FILE* fp)
+void dumpMyStruct(myStruct *ptr, FILE *fp)
 {
     if (fp == NULL)
         return;
 
     fwrite(ptr, sizeof(myStruct), 1, fp);
 }
-void readMyStruct(myStruct* ptr, FILE* fp)
+void readMyStruct(myStruct *ptr, FILE *fp)
 {
     if (fp == NULL)
         return;
@@ -29,16 +29,16 @@ int main(void)
 {
     setvbuf(stdout, NULL, _IONBF, 0);
 
-    myStruct* data = (myStruct*)malloc(sizeof(myStruct));
+    myStruct *data = (myStruct *)malloc(sizeof(myStruct));
     strcpy(data->firstName, "qwerty");
     strcpy(data->lastName, "uiop");
     data->age = 10;
 
-    FILE* fp = fopen("test.bin", "wb");
+    FILE *fp = fopen("test.bin", "wb");
     dumpMyStruct(data, fp);
     fclose(fp);
 
-    myStruct *readFromFile = (myStruct*)malloc(sizeof(myStruct));
+    myStruct *readFromFile = (myStruct *)malloc(sizeof(myStruct));
     fp = fopen("test.bin", "rb");
     readMyStruct(readFromFile, fp);
     fclose(fp);
