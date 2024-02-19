@@ -8,19 +8,24 @@
 #define ERR_RANGE 2
 
 #define uint unsigned int
-#define ABS(X) (X) < 0 ? -(X) : (X)
 
 void printBinary(uint number)
 {
-    char bin[32];
+    char isFirstZero = 1; // flag to avoid printing leading zero's
     for (int i = 0; i < 32; ++i)
     {
-        bin[i] = number % 2;
-        number /= 2;
+        if ((number & (1u << (31-i))) == 0)
+        {
+            if (!isFirstZero)
+                printf("0");
+        }
+        else
+        {
+            isFirstZero = 0;
+            printf("1");
+        }
     }
 
-    for (int i = 31; i >= 0; --i)
-        printf("%d", bin[i]);
     printf("\n");
 }
 void printBytes(uint number)
@@ -61,3 +66,4 @@ int main(void)
 }
 
 // 225 115 45 1 e1 73 2d 1
+// 11100001011100110010110100000001
