@@ -1,7 +1,7 @@
 // 1 var
 
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
 #define ERR_OK 0
 #define ERR_IO 1
@@ -14,7 +14,7 @@ void printBinary(uint number)
     char isFirstZero = 1; // flag to avoid printing leading zero's
     for (int i = 0; i < 32; ++i)
     {
-        if ((number & (1u << (31-i))) == 0)
+        if ((number & (1u << (31 - i))) == 0)
         {
             if (!isFirstZero)
                 printf("0");
