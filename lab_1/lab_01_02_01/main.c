@@ -1,7 +1,5 @@
-// TODO
-
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
 #define ERR_OK 0
 #define ERR_IO 1
@@ -9,6 +7,7 @@
 
 #define ABS(x) ((x) < 0 ? -(x) : (x))
 #define EPS 1e-8
+#define PI 3.1415926535
 
 int main()
 {
@@ -27,18 +26,13 @@ int main()
         return ERR_INPUT;
     }
 
-    if (ABS(phi) - EPS > 90)
+    if (ABS(phi) - EPS >= 90)
     {
         printf("Phi cannot be bigger than 90 degrees.\n");
         return ERR_INPUT;
     }
 
-    if (ABS(phi - 90) <= EPS)
-        printf("Area equals to %f.\n", a * b);
-    else
-    {
-        s = (b * b - a * a) / 2.0 * tan(phi * 3.14159 / 180.0);
-        printf("Area equals to %f\n", s);
-    }
+    s = (b * b - a * a) / 4.0 * tan(phi * PI / 180.0);
+    printf("Area equals to %f\n", s);
     return ERR_OK;
 }
